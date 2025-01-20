@@ -1,1 +1,117 @@
+from flask import Flask, render_template_string
 
+app = Flask(__name__)
+
+HTML_TEMPLATE = """
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Science Coaching for Kids</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        header {
+            background: #6200ea;
+            color: #fff;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background: #3700b3;
+            padding: 0.5rem;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #6200ea;
+            color: #fff;
+            margin-top: 2rem;
+        }
+        .button {
+            display: inline-block;
+            background: #03dac5;
+            color: #000;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .button:hover {
+            background: #018786;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Science Coaching for Kids</h1>
+        <p>Fun and interactive science lessons for just ₹1,000/month!</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#courses">Courses</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="container" id="about">
+        <h2>About Me</h2>
+        <p>Hello! I'm an experienced science educator passionate about making learning exciting for kids. My classes focus on interactive experiments, real-world applications, and personalized attention to help students understand and enjoy science.</p>
+    </div>
+
+    <div class="container" id="courses">
+        <h2>Courses</h2>
+        <ul>
+            <li>Weekly science lessons covering key topics.</li>
+            <li>Interactive experiments and hands-on activities.</li>
+            <li>Monthly quizzes to track progress.</li>
+        </ul>
+        <p><strong>Fee:</strong> ₹1,000/month</p>
+        <a href="https://forms.gle/example" class="button">Enroll Now</a>
+    </div>
+
+    <div class="container" id="contact">
+        <h2>Contact</h2>
+        <p>If you have any questions or need more information, feel free to reach out!</p>
+        <p><strong>Email:</strong> yourname@example.com</p>
+        <p><strong>Phone:</strong> +91-1234567890</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Online Science Coaching for Kids. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>
+"""
+
+@app.route('/')
+def home():
+    return render_template_string(HTML_TEMPLATE)
+
+if __name__ == '__main__':
+    app.run(debug=True) "Add initial website").
